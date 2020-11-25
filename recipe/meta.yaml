@@ -24,6 +24,8 @@ requirements:
     - pip
     - python
     - zlib
+    - numpy
+    - six
   run:
     - python
     - numpy
