@@ -6,13 +6,15 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/atari-py/atari-py-{{ version }}.tar.gz
-  sha256: 6249ad5079b0489e87eb44e65485bb1b07cc1b5af729f1ee52ece749503ceb1d
+  - url: https://github.com/openai/atari-py/archive/{{ version }}.zip
+    sha256: 2ab97bc59f196f91d1b2227ac1cece3ef3fda996d9acf7a8c93e866d4bdc9f3f
+  - url: https://zlib.net/zlib1211.zip  # [win]
+    sha256: d7510a8ee1918b7d0cad197a089c0a2cd4d6df05fee22389f67f115e738b178d  # [win]
+    folder: atari_py/ale_interface/src/zlib  # [win]
 
 build:
-  number: 2
-  script: {{ PYTHON }} -m pip install . -vv
-  skip: True  # [win]
+  number: 3
+  script: {{ PYTHON }} -m pip install . -vv  # [not win]
 
 requirements:
   build:
@@ -23,6 +25,8 @@ requirements:
     - pip
     - python
     - zlib
+    - numpy
+    - six
   run:
     - python
     - numpy
@@ -30,8 +34,12 @@ requirements:
     - zlib
 
 test:
+  requires:
+    - pytest
   imports:
     - atari_py
+  commands:
+    - pytest --pyargs atari_py.tests
 
 about:
   home: https://github.com/openai/atari-py
