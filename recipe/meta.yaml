@@ -13,7 +13,7 @@ source:
     folder: atari_py/ale_interface/src/zlib  # [win]
 
 build:
-  number: 3
+  number: 4
   script: {{ PYTHON }} -m pip install . -vv  # [not win]
 
 requirements:
@@ -53,6 +53,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - mxr-conda
     - oblute
     - rluria14
     - ndmaxar
