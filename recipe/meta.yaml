@@ -1,19 +1,19 @@
 {% set name = "atari_py" %}
-{% set version = "0.2.6" %}
+{% set version = "0.2.7" %}
 
-package: 
+package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
   - url: https://github.com/openai/atari-py/archive/{{ version }}.zip
-    sha256: 2ab97bc59f196f91d1b2227ac1cece3ef3fda996d9acf7a8c93e866d4bdc9f3f
+    sha256: 0862dd232171c3d073b1e737cd5693d646bf62cc61f82a3b72bec3ecc783b63b
   - url: https://zlib.net/zlib1211.zip  # [win]
     sha256: d7510a8ee1918b7d0cad197a089c0a2cd4d6df05fee22389f67f115e738b178d  # [win]
     folder: atari_py/ale_interface/src/zlib  # [win]
 
 build:
-  number: 4
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv  # [not win]
 
 requirements:
@@ -47,7 +47,7 @@ about:
   license_family: GPL
   # License file not packaged in pypi, tracked in https://github.com/openai/atari-py/issues/71
   license_file: License.txt
-  summary: "Python bindings to Atari games"
+  summary: Python bindings to Atari games
   doc_url: https://pypi.org/project/atari-py/
   dev_url: https://github.com/openai/atari-py
 
