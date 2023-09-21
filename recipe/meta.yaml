@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/openai/atari-py/archive/{{ version }}.zip
-    sha256: 53aa3a3a464ff1c23396b7cdaea7edd12ca9100a7c9db0b36c1475112a66612f
+    sha256: 205707c51490c4594b2dfcdbfa10290c3eec4655a0c1aefb2ba1e9b3644bb22f
   - url: https://zlib.net/zlib1211.zip  # [win]
     sha256: d7510a8ee1918b7d0cad197a089c0a2cd4d6df05fee22389f67f115e738b178d  # [win]
     folder: atari_py/ale_interface/src/zlib  # [win]
